@@ -1,17 +1,27 @@
+import Image from "next/image";
+
 const FACTS = [
   { value: "48hr", label: "Estimate turnaround" },
   { value: "7", label: "Services under one crew" },
-  { value: "100%", label: "Licensed & insured" },
+  { value: "1", label: "Point of contact" },
 ];
 
 export default function About() {
   return (
     <section id="about" className="border-y border-black/5 bg-stone-light/40">
-      {/* Real photo slot: /public/images/about-crew.jpg — see IMAGES.md for the prompt */}
-      <div
-        className="h-64 w-full bg-cover bg-center bg-stone-light sm:h-80 lg:h-96"
-        style={{ backgroundImage: "url(/images/about-crew.jpg), linear-gradient(135deg, #e7e2d7, #d8d1c2)" }}
-      />
+      <div className="relative h-64 w-full overflow-hidden bg-stone-light sm:h-80 lg:h-96">
+        <Image
+          src="/images/about-crew.jpg"
+          alt="Two-person crew installing and leveling bluestone pavers"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-pine-dark/35 via-transparent to-transparent" />
+        <p className="absolute bottom-6 left-6 rounded-full border border-white/20 bg-pine-dark/55 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white backdrop-blur-sm lg:left-10">
+          Built by the people who walk the site
+        </p>
+      </div>
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 py-20 lg:grid-cols-5 lg:gap-16 lg:px-10 lg:py-24">
         <div className="lg:col-span-3">
