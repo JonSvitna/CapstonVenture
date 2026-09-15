@@ -1,9 +1,9 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Stats from "@/components/Stats";
+import FeaturedWork from "@/components/FeaturedWork";
 import Services from "@/components/Services";
-import FeaturedProject from "@/components/FeaturedProject";
-import Process from "@/components/Process";
+import EditorialFeed from "@/components/EditorialFeed";
+import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -13,10 +13,10 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <Stats />
+        <FeaturedWork />
         <Services />
-        <FeaturedProject />
-        <Process />
+        <EditorialFeed />
+        <About />
         <Contact />
       </main>
       <Footer />
