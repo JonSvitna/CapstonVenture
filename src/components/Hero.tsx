@@ -1,46 +1,39 @@
+import Image from "next/image";
+
 export default function Hero() {
   return (
     <section id="top" className="relative isolate overflow-hidden">
-      {/*
-        Real photo slot: /public/images/hero-bg.jpg (see IMAGES.md for the prompt).
-        Falls back to the gradient/topo backdrop below if the file isn't there yet.
-      */}
-      <div
-        className="absolute inset-0 -z-20 bg-cover bg-center"
-        style={{ backgroundImage: "url(/images/hero-bg.jpg)" }}
+      <Image
+        src="/images/hero-bg.jpg"
+        alt=""
+        fill
+        preload
+        sizes="100vw"
+        className="-z-20 object-cover object-center"
       />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-pine/95 via-pine/90 to-pine-dark/95" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(20,34,25,.97)_0%,rgba(20,34,25,.88)_44%,rgba(20,34,25,.36)_100%)]" />
       <div className="absolute inset-0 -z-10 bg-noise opacity-[0.07]" />
-      <svg
-        className="absolute inset-0 -z-10 h-full w-full opacity-40"
-        preserveAspectRatio="none"
-        viewBox="0 0 1400 800"
-        fill="none"
-      >
-        <path
-          d="M0 620L120 560L240 600L360 500L480 570L600 460L720 540L840 440L960 520L1080 420L1200 500L1400 430V800H0V620Z"
-          fill="#142219"
-          opacity="0.6"
-        />
-        <path
-          d="M0 700L140 640L280 690L420 600L560 660L700 570L840 640L980 550L1120 620L1260 540L1400 600V800H0V700Z"
-          fill="#0e1a12"
-          opacity="0.7"
-        />
-      </svg>
-
-      <div className="relative mx-auto flex min-h-[78vh] max-w-7xl flex-col justify-between px-6 pb-12 pt-20 lg:px-10 lg:pt-28">
-        <div className="max-w-3xl">
+      <div className="relative mx-auto flex min-h-[82vh] max-w-7xl flex-col justify-between px-6 pb-10 pt-20 lg:px-10 lg:pb-14 lg:pt-28">
+        <div className="max-w-3xl pt-8 lg:pt-12">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-clay-light">
             Capstone Venture Group — Land Management
           </p>
-          <h1 className="mt-6 font-display text-4xl font-medium leading-[1.1] text-cream sm:text-5xl lg:text-[3.4rem]">
-            We take land from raw to finished, under one crew.
+          <h1 className="mt-6 max-w-2xl font-display text-5xl font-medium leading-[1.02] text-cream sm:text-6xl lg:text-7xl">
+            Raw land in. Finished ground out.
           </h1>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-cream/72 sm:text-lg">
+            Clearing, excavation, drainage, hardscape, and finish work—run in
+            sequence by one accountable land-management team.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-xs font-semibold uppercase tracking-[0.16em] text-cream/65">
+            <span>Residential</span>
+            <span>Commercial</span>
+            <span>Municipal</span>
+          </div>
         </div>
 
         <div className="mt-16 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div className="max-w-sm rounded-2xl border border-cream/15 bg-cream/[0.06] p-6 backdrop-blur">
+          <div className="max-w-sm rounded-2xl border border-cream/15 bg-pine-dark/45 p-6 backdrop-blur-md">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-clay-light">
               Featured
             </p>
@@ -69,7 +62,7 @@ export default function Hero() {
               href="#contact"
               className="rounded-full bg-clay px-7 py-3.5 text-sm font-semibold text-cream transition hover:bg-clay-light"
             >
-              Get a 48-Hour Estimate
+              Request an Estimate
             </a>
             <a
               href="#services"

@@ -2,22 +2,31 @@ const COLUMNS = [
   {
     title: "Services",
     links: [
-      "Landscaping",
-      "Hardscaping",
-      "Land Clearing",
-      "Excavation",
-      "Demolition",
-      "Site Preparation",
-      "Junk Removal & Hauling",
+      { label: "Landscaping", href: "#services" },
+      { label: "Hardscaping", href: "#services" },
+      { label: "Land Clearing", href: "#services" },
+      { label: "Excavation", href: "#services" },
+      { label: "Demolition", href: "#services" },
+      { label: "Site Preparation", href: "#services" },
+      { label: "Junk Removal & Hauling", href: "#services" },
     ],
   },
   {
     title: "Company",
-    links: ["Our Work", "About", "Contact", "Request a Quote"],
+    links: [
+      { label: "Our Work", href: "#work" },
+      { label: "About", href: "#about" },
+      { label: "Contact", href: "#contact" },
+      { label: "Request a Quote", href: "#contact" },
+    ],
   },
   {
     title: "Industries",
-    links: ["Residential", "Commercial", "Municipal & Public Land"],
+    links: [
+      { label: "Residential", href: "#services" },
+      { label: "Commercial", href: "#services" },
+      { label: "Municipal & Public Land", href: "#services" },
+    ],
   },
 ];
 
@@ -33,10 +42,9 @@ export default function Footer() {
             <p className="mt-1 text-sm text-cream/50">
               Land Management Division
             </p>
-            <p className="mt-6 text-sm text-cream/50">
+            <a href="mailto:projects@capstoneventuregroup.com" className="mt-6 block text-sm text-cream/50 transition hover:text-cream">
               projects@capstoneventuregroup.com
-            </p>
-            <p className="text-sm text-cream/50">(000) 000-0000</p>
+            </a>
           </div>
 
           {COLUMNS.map((col) => (
@@ -46,12 +54,12 @@ export default function Footer() {
               </p>
               <ul className="mt-4 space-y-2.5">
                 {col.links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <a
-                      href="#contact"
+                      href={link.href}
                       className="text-sm text-cream/70 transition hover:text-cream"
                     >
-                      {link}
+                      {link.label}
                     </a>
                   </li>
                 ))}
@@ -65,14 +73,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Capstone Venture Group. All rights
             reserved.
           </p>
-          <div className="flex gap-6">
-            <a href="#" className="transition hover:text-cream/70">
-              Privacy Policy
-            </a>
-            <a href="#" className="transition hover:text-cream/70">
-              Terms of Service
-            </a>
-          </div>
+          <p>New York and surrounding region</p>
         </div>
       </div>
     </footer>

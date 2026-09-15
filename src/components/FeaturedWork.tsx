@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const PROJECTS = [
   {
     tag: "Featured — 2025",
@@ -9,6 +11,8 @@ const PROJECTS = [
     attribution: "— Richard Robinson",
     dark: true,
     image: "/images/work-atlas.jpg",
+    imageAlt: "Finished bluestone patio and illuminated stone retaining wall at dusk",
+    scope: "Clear · Grade · Build · Finish",
   },
   {
     tag: "Commercial",
@@ -18,6 +22,8 @@ const PROJECTS = [
       "Excavation and drainage engineering ahead of a ground-up commercial build, coordinated around a live construction schedule.",
     dark: false,
     image: "/images/work-commercial.jpg",
+    imageAlt: "Excavator and dump truck preparing drainage on a commercial construction site",
+    scope: "Excavate · Drain · Stage",
   },
   {
     tag: "Residential",
@@ -27,6 +33,8 @@ const PROJECTS = [
       "Retaining walls, a new patio, and finish planting on a sloped lot that a previous contractor had left unresolved.",
     dark: false,
     image: "/images/work-residential.jpg",
+    imageAlt: "Fieldstone retaining wall, paver patio, and fire pit on a sloped backyard",
+    scope: "Retain · Pave · Plant",
   },
 ];
 
@@ -54,21 +62,26 @@ export default function FeaturedWork() {
         {PROJECTS.map((project) => (
           <article
             key={project.title}
-            className={`flex flex-col justify-between gap-8 overflow-hidden rounded-3xl ${
+            className={`group flex flex-col justify-between gap-8 overflow-hidden rounded-3xl transition duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-pine/10 ${
               project.dark
                 ? "bg-pine text-cream"
                 : "border border-black/5 bg-stone-light/50 text-foreground"
             }`}
           >
-            {/* Real photo slot — see IMAGES.md for the prompt for this file */}
-            <div
-              className="aspect-[4/3] w-full bg-cover bg-center"
-              style={{
-                backgroundImage: `url(${project.image}), linear-gradient(135deg, ${
-                  project.dark ? "#1f3327, #142219" : "#e7e2d7, #d8d1c2"
-                })`,
-              }}
-            />
+            <div className="relative aspect-[4/3] w-full overflow-hidden bg-stone-light">
+              <Image
+                src={project.image}
+                alt={project.imageAlt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 33vw"
+                className="object-cover transition duration-700 group-hover:scale-[1.03]"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/45 to-transparent px-6 pb-5 pt-14">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/85">
+                  {project.scope}
+                </p>
+              </div>
+            </div>
 
             <div className="flex flex-1 flex-col justify-between gap-8 px-8 pb-8">
             <div>
@@ -110,7 +123,7 @@ export default function FeaturedWork() {
                 href="#contact"
                 className="text-sm font-semibold text-pine transition hover:text-clay"
               >
-                Read the scope →
+                Plan a similar project →
               </a>
             )}
             </div>
