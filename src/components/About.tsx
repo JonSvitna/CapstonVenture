@@ -7,6 +7,12 @@ const FACTS = [
 export default function About() {
   return (
     <section id="about" className="border-y border-black/5 bg-stone-light/40">
+      {/* Real photo slot: /public/images/about-crew.jpg — see IMAGES.md for the prompt */}
+      <div
+        className="h-64 w-full bg-cover bg-center bg-stone-light sm:h-80 lg:h-96"
+        style={{ backgroundImage: "url(/images/about-crew.jpg), linear-gradient(135deg, #e7e2d7, #d8d1c2)" }}
+      />
+
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 py-20 lg:grid-cols-5 lg:gap-16 lg:px-10 lg:py-24">
         <div className="lg:col-span-3">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-clay">

@@ -8,6 +8,7 @@ const PROJECTS = [
     quote: "“Communication was top-notch and the final outcome was even better.”",
     attribution: "— Richard Robinson",
     dark: true,
+    image: "/images/work-atlas.jpg",
   },
   {
     tag: "Commercial",
@@ -16,6 +17,7 @@ const PROJECTS = [
     description:
       "Excavation and drainage engineering ahead of a ground-up commercial build, coordinated around a live construction schedule.",
     dark: false,
+    image: "/images/work-commercial.jpg",
   },
   {
     tag: "Residential",
@@ -24,6 +26,7 @@ const PROJECTS = [
     description:
       "Retaining walls, a new patio, and finish planting on a sloped lot that a previous contractor had left unresolved.",
     dark: false,
+    image: "/images/work-residential.jpg",
   },
 ];
 
@@ -51,12 +54,23 @@ export default function FeaturedWork() {
         {PROJECTS.map((project) => (
           <article
             key={project.title}
-            className={`flex flex-col justify-between gap-8 rounded-3xl p-8 ${
+            className={`flex flex-col justify-between gap-8 overflow-hidden rounded-3xl ${
               project.dark
                 ? "bg-pine text-cream"
                 : "border border-black/5 bg-stone-light/50 text-foreground"
             }`}
           >
+            {/* Real photo slot — see IMAGES.md for the prompt for this file */}
+            <div
+              className="aspect-[4/3] w-full bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${project.image}), linear-gradient(135deg, ${
+                  project.dark ? "#1f3327, #142219" : "#e7e2d7, #d8d1c2"
+                })`,
+              }}
+            />
+
+            <div className="flex flex-1 flex-col justify-between gap-8 px-8 pb-8">
             <div>
               <p
                 className={`text-xs font-semibold uppercase tracking-[0.2em] ${
@@ -99,6 +113,7 @@ export default function FeaturedWork() {
                 Read the scope →
               </a>
             )}
+            </div>
           </article>
         ))}
       </div>

@@ -1,8 +1,15 @@
 export default function Hero() {
   return (
     <section id="top" className="relative isolate overflow-hidden">
-      {/* Full-bleed backdrop standing in for site photography */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-pine via-pine to-pine-dark" />
+      {/*
+        Real photo slot: /public/images/hero-bg.jpg (see IMAGES.md for the prompt).
+        Falls back to the gradient/topo backdrop below if the file isn't there yet.
+      */}
+      <div
+        className="absolute inset-0 -z-20 bg-cover bg-center"
+        style={{ backgroundImage: "url(/images/hero-bg.jpg)" }}
+      />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-pine/95 via-pine/90 to-pine-dark/95" />
       <div className="absolute inset-0 -z-10 bg-noise opacity-[0.07]" />
       <svg
         className="absolute inset-0 -z-10 h-full w-full opacity-40"
